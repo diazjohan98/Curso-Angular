@@ -5,10 +5,12 @@ import { ComponenteInline } from './componente-inline/componente-inline';
 import { Interpolacion } from "./interpolacion/interpolacion";
 import { Padre } from './padre/padre';
 import { Producto } from './producto/producto';
+import { Hijo } from "./hijo/hijo";
+import { MostrarMensaje } from "./mostrar-mensaje/mostrar-mensaje";
 
 @Component({
   selector: 'app-root',
-  imports: [NuevoComponente, ComponenteInline, Interpolacion, Padre, Producto],
+  imports: [NuevoComponente, ComponenteInline, Interpolacion, Padre, Producto, Hijo, MostrarMensaje],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
