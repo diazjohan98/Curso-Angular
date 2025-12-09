@@ -7,10 +7,12 @@ import { Padre } from './padre/padre';
 import { Producto } from './producto/producto';
 import { Hijo } from "./hijo/hijo";
 import { MostrarMensaje } from "./mostrar-mensaje/mostrar-mensaje";
+import { Replicador } from "./replicador/replicador";
+import { Saludar } from "./saludar/saludar";
 
 @Component({
   selector: 'app-root',
-  imports: [NuevoComponente, ComponenteInline, Interpolacion, Padre, Producto, Hijo, MostrarMensaje],
+  imports: [NuevoComponente, ComponenteInline, Interpolacion, Padre, Producto, Hijo, MostrarMensaje, Replicador, Saludar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
