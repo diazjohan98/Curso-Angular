@@ -1,0 +1,25 @@
+<h5 class="text-success mt-3">Agregar nuevo producto</h5>
+
+<form
+  class="d-flex justify-content-betweem align-items-center my-4 w-50 mx-auto"
+  (submit)="agregarProducto($event)"
+>
+  <input
+    #nuevaProducto
+    type="text"
+    class="form-control w-50"
+    placeholder="Descripcion nuevo producto"
+    autocomplete="off"
+    [(ngModel)]="descripcionInput"
+    name="descripcionInput"
+  />
+  <input
+    type="number"
+    class="form-control me-2 w-25"
+    id="precio"
+    name="precio"
+    placeholder="Precio"
+    [(ngModel)]="precioInput"
+  />
+  <button type="submit" class="btn btn-primary">Agregar</button>
+</form>

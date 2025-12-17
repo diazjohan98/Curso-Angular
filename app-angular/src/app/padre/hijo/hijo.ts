@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './hijo.css',
 })
 export class Hijo {
+  
+  mensaje: string = 'Mensaje desde el componente hijo';
 
+  cambiarMensaje(nuevoMensaje: string) {
+    this.mensaje = nuevoMensaje;
+  }
 }

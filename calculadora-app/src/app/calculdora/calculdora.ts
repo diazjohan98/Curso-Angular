@@ -1,37 +1,18 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Formulario } from '../formulario/formulario';
+import { Resultado } from '../resultado/resultado';
 
 @Component({
   selector: 'app-calculdora',
-  imports: [FormsModule],
+  imports: [FormsModule, Formulario, Resultado],
   templateUrl: './calculdora.html',
   styleUrl: './calculdora.css',
 })
 export class Calculdora {
-  operandoA: number = 0;
-  operandoB: number = 0;
-  resultado: number = 0;
-  reset: boolean = false; 
+  resultadoPadre: number = 0;
 
-  sumar() {
-    this.resultado = this.operandoA + this.operandoB;
-  }
-  restar () {
-    this.resultado = this.operandoA - this.operandoB;
-  }
-  multi() {
-    this.resultado = this.operandoA * this.operandoB;
-  }
-  dividir() {
-    if (this.operandoB !== 0) {
-      this.resultado = this.operandoA / this.operandoB;
-    }
-  }
-
-  limpiar() {
-    this.operandoA = 0;
-    this.operandoB = 0;
-    this.resultado = 0;
-    this.reset = true;
+  procesarResultado(resultadoHijo: number) {
+    this.resultadoPadre = resultadoHijo;
   }
 }
