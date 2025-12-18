@@ -1,4 +1,4 @@
-import { Component, signal, Inject } from '@angular/core';
+import { Component, signal, Inject, LOCALE_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NuevoComponente } from './nuevo-componente/nuevo-componente';
 import { ComponenteInline } from './componente-inline/componente-inline';
@@ -13,7 +13,12 @@ import { AgregarTarea } from './agregar-tarea/agregar-tarea';
 import { ComponenteFor } from './componente-for/componente-for';
 import { ViewChildComponent } from './view-child/view-child';
 import { Mensaje } from './mensaje.service';
-import { ListadoUsuarios } from "./listado-usuarios/listado-usuarios";
+import { ListadoUsuarios } from './listado-usuarios/listado-usuarios';
+import { EjemploPipes } from './ejemplo-pipes/ejemplo-pipes';
+import { registerLocaleData } from '@angular/common';
+import localeES from '@angular/common/locales/es';
+
+registerLocaleData(localeES, 'es');
 
 @Component({
   selector: 'app-root',
@@ -30,8 +35,10 @@ import { ListadoUsuarios } from "./listado-usuarios/listado-usuarios";
     AgregarTarea,
     ComponenteFor,
     ViewChildComponent,
-    ListadoUsuarios
-],
+    ListadoUsuarios,
+    EjemploPipes,
+  ],
+  providers: [{provide: LOCALE_ID, useValue: 'es'}],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
