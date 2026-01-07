@@ -17,6 +17,7 @@ import { ListadoUsuarios } from './listado-usuarios/listado-usuarios';
 import { EjemploPipes } from './ejemplo-pipes/ejemplo-pipes';
 import { registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es';
+import { Navegacion } from "./navegacion/navegacion";
 
 registerLocaleData(localeES, 'es');
 
@@ -37,7 +38,9 @@ registerLocaleData(localeES, 'es');
     ViewChildComponent,
     ListadoUsuarios,
     EjemploPipes,
-  ],
+    RouterOutlet,
+    Navegacion
+],
   providers: [{provide: LOCALE_ID, useValue: 'es'}],
   templateUrl: './app.html',
   styleUrl: './app.css',
