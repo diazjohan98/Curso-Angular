@@ -1,19 +1,46 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Producto } from './producto/producto.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductoService {
-    productos: Producto[] = [
-      new Producto('Camisa', 20),
-      new Producto('Pantalones', 40),
-      new Producto('Zapatos', 60),
-    ];
+  private idSiguiente = 1;
 
-    detalleProductoEmiter = new EventEmitter<Producto>();
+  productos: Producto[] = [];
 
-    agregarProducto(producto: Producto) {
-    this.productos.push(producto);
+  constructor() {
+    this.inicializarProductos();
+  }
+
+  private inicializarProductos() {
+    const producto1 = new Producto(this.idSiguiente++, 'Camisa', 20);
+    const producto2 = new Producto(this.idSiguiente++, 'Pantalones', 40);
+    const producto3 = new Producto(this.idSiguiente++, 'Zapatos', 60);
+
+    this.productos.push(producto1, producto2, producto3);
+  }
+
+  guardarProducto(producto: Producto) {
+    if (producto.id === null) {
+      producto.id = this.idSiguiente++;
+      this.productos.push(producto);
+    } else {
+      const indice = this.productos.findIndex((p) => p.id === producto.id);
+      if (indice !== -1) {
+        this.productos[indice] = producto;
+      }
+    }
+  }
+
+  getProductoById(id: number): Producto | undefined {
+    return this.productos.find((producto) => producto.id === id);
+  }
+
+  eliminarProducto(id: number) {
+    const indice = this.productos.findIndex((producto) => producto.id === id);
+    if (indice !== -1) {
+      this.productos.splice(indice, 1);
+    }
   }
 }
